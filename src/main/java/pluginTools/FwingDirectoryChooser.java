@@ -80,13 +80,13 @@ public class FwingDirectoryChooser extends JPanel {
 			
 			
 			
-			Done.addActionListener(new DoneListener());
+			//Done.addActionListener(new DoneListener());
 			
-			original.LoadLeftWingDirectory.addActionListener(new OriginalLeftWing(this, original.LoadLeftWingDirectory));
-			original.LoadRightWingDirectory.addActionListener(new OriginalRightWing(this, original.LoadRightWingDirectory));
+			//original.LoadLeftWingDirectory.addActionListener(new OriginalLeftWing(this, original.LoadLeftWingDirectory));
+			//original.LoadRightWingDirectory.addActionListener(new OriginalRightWing(this, original.LoadRightWingDirectory));
 			
-			segmentation.LoadLeftWingDirectory.addActionListener(new SegmentationLeftWing(this, segmentation.LoadLeftWingDirectory));
-			segmentation.LoadRightWingDirectory.addActionListener(new SegmentationRightWing(this, segmentation.LoadRightWingDirectory));
+			//segmentation.LoadLeftWingDirectory.addActionListener(new SegmentationLeftWing(this, segmentation.LoadLeftWingDirectory));
+			//segmentation.LoadRightWingDirectory.addActionListener(new SegmentationRightWing(this, segmentation.LoadRightWingDirectory));
 			
 			
 			panelFirst.setVisible(true);
