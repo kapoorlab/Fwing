@@ -1,6 +1,7 @@
 package pluginTools;
 
 import java.awt.CardLayout;
+import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -16,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
 import loaddirectory.LeftRightDirectoryLoader;
+import pluginListeners.DoneSelection;
 import pluginListeners.OriginalLeftWing;
 import pluginListeners.OriginalRightWing;
 import pluginListeners.SegmentationLeftWing;
@@ -27,6 +29,7 @@ public class FwingDirectoryChooser extends JPanel {
 	
 	public JFrame CardFrame = new JFrame("Flywing Assymmetry Quatification Tool (FAQT)");
 	public JPanel panelCont = new JPanel();
+	public boolean isFinished = false;
 	public final GridBagLayout layout = new GridBagLayout();
 	public final GridBagConstraints c = new GridBagConstraints();
 	public final Insets insets = new Insets(10, 0, 0, 0);
@@ -89,7 +92,7 @@ public class FwingDirectoryChooser extends JPanel {
 			
 			
 			
-			//Done.addActionListener(new DoneListener());
+			Done.addActionListener(new DoneSelection(this));
 			
 			original.LoadLeftWingDirectory.addActionListener(new OriginalLeftWing(this));
 			original.LoadRightWingDirectory.addActionListener(new OriginalRightWing(this));
@@ -108,6 +111,18 @@ public class FwingDirectoryChooser extends JPanel {
 		
 	}
 	
+	public final void Done(final Frame parent) {
+		  
+		  new InteractiveImporter(originalLeftWings, originalRightWings,SegmentationLeftWings,SegmentationRightWings).run(null);
+		  close(parent);
+	  }
+	  protected final void close(final Frame parent) {
+			if (parent != null)
+				parent.dispose();
+
+			isFinished = true;
+		}
+	  
 	
 	
 }
